@@ -15,12 +15,10 @@
         body { margin: 0; font-family: 'Inter', sans-serif; background-color: #0f172a; overflow: hidden; color: #334155; }
         #map { position: absolute; top: 0; bottom: 0; width: 100%; z-index: 1; }
         
-        /* HEADER - DIPERJELAS */
         .app-header { position: absolute; top: 0; left: 0; width: 100%; height: 85px; background: linear-gradient(90deg, #0f172a 0%, #1e3a8a 100%); color: white; z-index: 50; display: flex; flex-direction: column; justify-content: center; align-items: center; border-bottom: 4px solid #3b82f6; box-shadow: 0 4px 15px rgba(0,0,0,0.3); }
         .header-title { font-size: 22px; font-weight: 800; margin: 0; letter-spacing: 1.5px; text-transform: uppercase; text-shadow: 0 2px 4px rgba(0,0,0,0.5); }
         .header-subtitle { font-size: 14px; font-weight: 500; color: #93c5fd; margin-top: 5px; letter-spacing: 0.5px; }
 
-        /* SIDEBAR */
         .sidebar { position: absolute; top: 105px; left: 20px; width: 300px; background: rgba(255,255,255,0.95); backdrop-filter: blur(12px); padding: 20px; border-radius: 12px; z-index: 10; max-height: 80vh; overflow-y: auto; box-shadow: 0 10px 40px rgba(0,0,0,0.2); }
         .sidebar-title { font-weight: 800; color: #1e293b; font-size: 14px; margin-bottom: 15px; border-bottom: 2px solid #e2e8f0; padding-bottom: 10px; }
         .layer-item { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; font-size: 13px; font-weight: 600; color: #334155; }
@@ -31,14 +29,12 @@
         .slider:before { position: absolute; content: ""; height: 16px; width: 16px; left: 2px; bottom: 2px; background-color: white; transition: .4s; border-radius: 50%; }
         input:checked + .slider:before { transform: translateX(20px); }
 
-        /* BUTTONS */
         .btn-analyze { width: 100%; padding: 12px; border: none; border-radius: 8px; font-weight: 600; cursor: pointer; color: white; margin-bottom: 8px; font-size: 12px; display: flex; align-items: center; gap: 10px; }
         .btn-an1 { background: linear-gradient(135deg, #3b82f6, #2563eb); } 
         .btn-an2 { background: linear-gradient(135deg, #f59e0b, #d97706); } 
         .btn-an3 { background: linear-gradient(135deg, #ef4444, #dc2626); } 
         .btn-analyze:disabled { background: #94a3b8; cursor: not-allowed; }
 
-        /* DASHBOARD */
         .top-dashboard { position: absolute; top: 105px; left: 340px; right: 20px; max-width: 750px; margin: 0 auto; background: rgba(255,255,255,0.95); backdrop-filter: blur(12px); border-radius: 12px; z-index: 10; display: flex; flex-direction: column; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.15); transition: max-height 0.3s ease; max-height: 600px; border: 1px solid rgba(255,255,255,0.8); }
         .top-dashboard.minimized { max-height: 55px; }
         .dashboard-header { display: flex; justify-content: space-between; align-items: center; padding: 10px 15px; background: #f8fafc; border-bottom: 1px solid #e2e8f0; }
@@ -49,7 +45,6 @@
         .tab-btn.active { background: white; color: #2563eb; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
         .tab-content { padding: 25px; display: none; min-height: 180px; }
         .tab-content.active { display: block; animation: fadeIn 0.4s ease-out; }
-        @keyframes fadeIn { from { opacity:0; transform:translateY(10px); } to { opacity:1; transform:translateY(0); } }
         
         .data-table { width: 100%; border-collapse: collapse; font-size: 13px; margin-top: 15px; }
         .data-table td { padding: 10px 5px; color: #475569; border-bottom: 1px solid #f1f5f9; }
@@ -58,21 +53,18 @@
         .legend-item { display: flex; align-items: center; font-size: 11px; margin-bottom: 5px; }
         .color-box { width: 12px; height: 12px; margin-right: 8px; border-radius: 3px; }
 
-        /* FOOTER LENGKAP */
         .app-footer { position: absolute; bottom: 0; left: 0; width: 100%; background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(8px); padding: 15px 0; text-align: center; font-size: 11px; color: #64748b; z-index: 50; border-top: 1px solid #e2e8f0; display: flex; flex-direction: column; align-items: center; gap: 8px; }
         .footer-title { font-weight: 700; font-size: 10px; letter-spacing: 1px; color: #334155; margin-bottom: 5px; text-transform: uppercase; }
         .footer-logos { display: flex; gap: 20px; align-items: center; }
         .footer-logo { height: 35px; filter: grayscale(100%); opacity: 0.8; transition: 0.3s; }
         .footer-logo:hover { filter: grayscale(0%); opacity: 1; transform: scale(1.1); }
 
-        /* POPUP STYLE */
         .maplibregl-popup-content { padding: 0; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.2); font-family: 'Inter', sans-serif; min-width: 250px; border: 1px solid white; }
         .popup-header { background: linear-gradient(135deg, #3b82f6, #1e3a8a); color: white; padding: 12px 15px; font-weight: 700; font-size: 13px; text-align: center; }
         .popup-body { padding: 15px; background: white; max-height: 300px; overflow-y: auto; }
         .popup-row { display: flex; justify-content: space-between; margin-bottom: 8px; border-bottom: 1px dashed #f1f5f9; padding-bottom: 4px; font-size: 12px; color: #334155; }
         .popup-val { font-weight: 700; color: #0f172a; }
 
-        /* CHATBOT */
         .chat-btn { position: absolute; bottom: 100px; right: 20px; width: 50px; height: 50px; background: #2563eb; border-radius: 50%; color: white; display:flex; align-items:center; justify-content:center; font-size: 24px; cursor: pointer; z-index: 55; box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
         .chat-window { position: absolute; bottom: 160px; right: 20px; width: 300px; height: 350px; background: white; border-radius: 12px; display: none; flex-direction: column; z-index: 55; box-shadow: 0 10px 30px rgba(0,0,0,0.2); }
         .chat-header { background: #2563eb; padding: 15px; color: white; font-weight: 700; display: flex; justify-content: space-between; }
@@ -188,10 +180,10 @@
     </div>
 </div>
 
-<button class="chat-btn" onclick="document.getElementById('chatWindow').style.display = document.getElementById('chatWindow').style.display === 'flex' ? 'none' : 'flex'">💬</button>
+<button class="chat-btn" onclick="toggleChat()">💬</button>
 <div class="chat-window" id="chatWindow">
     <div class="chat-header"><span>Asisten Geoportal</span><span onclick="toggleChat()" style="cursor:pointer; opacity:0.8;">✕</span></div>
-    <div id="chatBody" class="chat-body"><div class="msg-bubble msg-ai">Halo! Saya Asisten AI Desa Nguwet.</div></div>
+    <div id="chatBody" class="chat-body"><div class="msg-bubble msg-ai">Halo! Saya Asisten AI Desa Nguwet. Ada yang bisa dibantu?</div></div>
     <div class="chat-input-area">
         <input type="text" id="chatInput" class="chat-input" placeholder="Ketik pesan..." onkeypress="handleChat(event)">
     </div>
@@ -199,119 +191,89 @@
 
 <div class="app-footer">
     <div style="margin-bottom:5px;">Dibuat Oleh Kelompok 1 - Infrastruktur Data Spasial<br>Magister Teknik Geomatika Departemen Teknik Geodesi Universitas Gadjah Mada</div>
-    
     <div class="footer-title">Stakeholder Sumber Data</div>
-    
     <div class="footer-logos">
-        <img src="logo/BPN.png" alt="Badan Pertanahan Nasional" class="footer-logo" onerror="this.style.display='none'">
-        <img src="logo/geodesi.jpg" alt="Departemen Teknik Geodesi Universitas Gadjah Mada" class="footer-logo" onerror="this.style.display='none'">
-        <img src="logo/PUPR.png" alt="Kementrian Pekerjaan Umum Pekerjaan Rakyat" class="footer-logo" onerror="this.style.display='none'">
-        <img src="logo/BIG.png" alt="Badan Informasi Geospasial" class="footer-logo" onerror="this.style.display='none'">
+        <img src="logo/BPN.png" alt="BPN" class="footer-logo">
+        <img src="logo/geodesi.jpg" alt="UGM" class="footer-logo">
+        <img src="logo/PUPR.png" alt="PUPR" class="footer-logo">
+        <img src="logo/BIG.png" alt="BIG" class="footer-logo">
     </div>
 </div>
 
 <script>
     const API_URL = 'https://zeeshuwu-backend-nguwet.hf.space';
     const TILE_URL = 'https://zeeshuwu.github.io/Geoportal_Desa_Nguwet/data/tiles';
-    const map = new maplibregl.Map({ container: 'map', style: { version: 8, sources: { osm: { type: 'raster', tiles: ['https://tile.openstreetmap.org/{z}/{x}/{y}.png'], tileSize: 256 } }, layers: [{ id: 'background', type: 'background', paint: {'background-color': '#0f172a'} }, { id: 'osm', type: 'raster', source: 'osm' }] }, center: [110.23, -7.36], zoom: 14, pitch: 55 });
+    
+    const map = new maplibregl.Map({ 
+        container: 'map', 
+        style: { 
+            version: 8, 
+            sources: { osm: { type: 'raster', tiles: ['https://tile.openstreetmap.org/{z}/{x}/{y}.png'], tileSize: 256 } }, 
+            layers: [{ id: 'background', type: 'background', paint: {'background-color': '#0f172a'} }, { id: 'osm', type: 'raster', source: 'osm' }] 
+        }, 
+        center: [110.23, -7.36], zoom: 14, pitch: 55 
+    });
     map.addControl(new maplibregl.NavigationControl());
 
     map.on('load', async () => {
+        // TILE ORTHO & DTM (FIX PATH)
         map.addSource('ortho-src', { type: 'raster', tiles: [`${TILE_URL}/ortho/{z}/{x}/{y}.png`], tileSize: 256 });
         map.addLayer({ id: 'ortho', type: 'raster', source: 'ortho-src' });
-        map.addSource('dtm-src', { type: 'raster-dem', tiles: [`${TILE_URL}/data/tiles/dtm/{z}/{x}/{y}.png`], tileSize: 256, maxzoom: 15, encoding: 'terrarium' });
+        map.addSource('dtm-src', { type: 'raster-dem', tiles: [`${TILE_URL}/dtm/{z}/{x}/{y}.png`], tileSize: 256, maxzoom: 15, encoding: 'terrarium' });
         map.setTerrain({ source: 'dtm-src', exaggeration: 1.5 });
 
-        const [resB, resP, resS] = await Promise.all([fetch(`${API_URL}/vectors/tapak_bangunan.geojson`), fetch(`${API_URL}/vectors/bidang_tanah.geojson`), fetch(`${API_URL}/vectors/sungai.geojson`).catch(()=>({ok:false}))]);
-        const dataB = await resB.json(); map.addSource('buildings', { type: 'geojson', data: dataB });
-        const dataP = await resP.json(); map.addSource('parcels', { type: 'geojson', data: dataP });
-        
-        document.getElementById('stat-bldg').innerText = dataB.features.length;
-        document.getElementById('stat-parcel').innerText = dataP.features.length;
+        // LOAD VECTORS
+        try {
+            const [resB, resP, resS] = await Promise.all([
+                fetch(`${API_URL}/vectors/tapak_bangunan.geojson`), 
+                fetch(`${API_URL}/vectors/bidang_tanah.geojson`), 
+                fetch(`${API_URL}/vectors/sungai.geojson`).catch(()=>({ok:false}))
+            ]);
+            
+            const dataB = await resB.json(); map.addSource('buildings', { type: 'geojson', data: dataB });
+            const dataP = await resP.json(); map.addSource('parcels', { type: 'geojson', data: dataP });
+            
+            document.getElementById('stat-bldg').innerText = dataB.features.length;
+            document.getElementById('stat-parcel').innerText = dataP.features.length;
 
-        map.addLayer({ id: 'bidang-tanah', type: 'line', source: 'parcels', layout: { visibility: 'none' }, paint: { 'line-color': '#fbbf24', 'line-width': 1.5 } });
-        if(resS.ok) { const dataS = await resS.json(); map.addSource('sungai', { type: 'geojson', data: dataS }); map.addLayer({ id: 'sungai', type: 'line', source: 'sungai', paint: { 'line-color': '#3b82f6', 'line-width': 4 } }); }
-        
-        // LAYER ASLI (HIJAU)
-        map.addLayer({
-            id: 'bangunan-3d', type: 'fill-extrusion', source: 'buildings',
-            paint: { 'fill-extrusion-color': '#22c55e', 'fill-extrusion-height': ['get', 'Z_NDSM'], 'fill-extrusion-opacity': 0.9 }
-        });
-        
-        // --- ADAPTASI LOGIKA REFERENSI ANDA: PASANG POPUP LANGSUNG KE LAYER ---
-        // Ini kuncinya: event ditempel ke ID layer secara eksplisit
-        attachPopupEvents('bangunan-3d');
-        attachPopupEvents('bidang-tanah');
+            map.addLayer({ id: 'bidang-tanah', type: 'line', source: 'parcels', layout: { visibility: 'none' }, paint: { 'line-color': '#fbbf24', 'line-width': 1.5 } });
+            if(resS.ok) { 
+                const dataS = await resS.json(); map.addSource('sungai', { type: 'geojson', data: dataS }); 
+                map.addLayer({ id: 'sungai', type: 'line', source: 'sungai', paint: { 'line-color': '#3b82f6', 'line-width': 4 } }); 
+            }
+            
+            map.addLayer({
+                id: 'bangunan-3d', type: 'fill-extrusion', source: 'buildings',
+                paint: { 'fill-extrusion-color': '#22c55e', 'fill-extrusion-height': ['get', 'Z_NDSM'], 'fill-extrusion-opacity': 0.9 }
+            });
+            
+            attachPopupEvents('bangunan-3d');
+            attachPopupEvents('bidang-tanah');
+        } catch(e) { console.error("Error loading vectors:", e); }
     });
 
-    // --- FUNGSI INTI: LOGIKA POPUP ALA REFERENSI GEOSPECTRA ---
     function attachPopupEvents(layerId) {
-        // 1. Ubah Kursor (MouseEnter/Leave) - Sama persis dengan referensi
-        map.on('mouseenter', layerId, () => {
-            map.getCanvas().style.cursor = 'pointer';
-        });
-        
-        map.on('mouseleave', layerId, () => {
-            map.getCanvas().style.cursor = '';
-        });
-
-        // 2. Klik (Langsung pada Layer ID) - Paling Stabil
+        map.on('mouseenter', layerId, () => { map.getCanvas().style.cursor = 'pointer'; });
+        map.on('mouseleave', layerId, () => { map.getCanvas().style.cursor = ''; });
         map.on('click', layerId, (e) => {
-            // Hentikan event agar tidak tembus ke layer bawahnya
-            // e.preventDefault(); 
-
             if (!e.features.length) return;
-
-            const f = e.features[0];
-            const p = f.properties;
-            
-            // Judul Popup
-            let title = layerId.toUpperCase().replace('-', ' ');
-            if(layerId.includes('bangunan')) title = "INFO BANGUNAN";
-            if(layerId.includes('bidang')) title = "INFO TANAH";
-            if(layerId.includes('skor')) title = "HASIL SKOR";
-            if(layerId.includes('pelanggaran')) title = "PELANGGARAN";
-
+            const p = e.features[0].properties;
+            let title = layerId.includes('bangunan') ? "INFO BANGUNAN" : (layerId.includes('bidang') ? "INFO TANAH" : "INFO ANALISIS");
             let html = `<div class="popup-header">${title}</div><div class="popup-body">`;
-
-            // Isi Popup (Dinamis cek properti)
-            // Cek ID & Tinggi (Selalu ada di bangunan)
             if (p.Id) html += `<div class="popup-row"><span>ID:</span> <span class="popup-val">${p.Id}</span></div>`;
             if (p.Z_NDSM) html += `<div class="popup-row"><span>Tinggi:</span> <span class="popup-val">${p.Z_NDSM} m</span></div>`;
-            
-            // Cek Hasil Analisis 1 (Skor) - Jika ada di properti
-            if (p.an1_smart_score !== undefined) {
-                html += `<hr style="margin:5px 0; border:0; border-top:1px dashed #ccc;">`;
-                html += `<div class="popup-row" style="color:#2563eb"><span>Skor:</span> <span class="popup-val">${p.an1_smart_score}</span></div>`;
-                html += `<div style="font-size:10px;">${p.an1_akses_ket}</div>`;
-            }
-
-            // Cek Hasil Analisis 3 (Pelanggaran)
-            if (p.an3_status) {
-                html += `<hr style="margin:5px 0; border:0; border-top:1px dashed #ccc;">`;
-                html += `<div class="popup-row" style="color:#dc2626; font-weight:700;">⚠️ ${p.an3_status}</div>`;
-            }
-
-            // Cek Info Tanah
-            if (p.NAMA_PEMILIK) {
-                html += `<div class="popup-row"><span>Pemilik:</span> <span class="popup-val">${p.NAMA_PEMILIK}</span></div>`;
-            }
-            if (p.an2_persen_terbangun !== undefined) {
-                html += `<div class="popup-row"><span>Terbangun:</span> <span class="popup-val">${p.an2_persen_terbangun}%</span></div>`;
-            }
-
-            html += `</div>`; // Tutup body
-
-            new maplibregl.Popup()
-                .setLngLat(e.lngLat)
-                .setHTML(html)
-                .addTo(map);
+            if (p.NAMA_PEMILIK) html += `<div class="popup-row"><span>Pemilik:</span> <span class="popup-val">${p.NAMA_PEMILIK}</span></div>`;
+            if (p.an1_smart_score) html += `<hr><div class="popup-row" style="color:#2563eb"><span>Skor:</span> <span class="popup-val">${p.an1_smart_score}</span></div>`;
+            if (p.an3_status) html += `<hr><div class="popup-row" style="color:#dc2626"><span>Status:</span> <span class="popup-val">${p.an3_status}</span></div>`;
+            html += `</div>`;
+            new maplibregl.Popup().setLngLat(e.lngLat).setHTML(html).addTo(map);
         });
     }
 
     function toggleLayer(id) { 
         if(!map.getLayer(id)) return;
-        const el = document.getElementById('tg-' + id.replace('layer-','').replace('bangunan-3d','bangunan').replace('bidang-tanah','bidang'));
+        const mapping = { 'ortho': 'tg-ortho', 'bangunan-3d': 'tg-bangunan', 'bidang-tanah': 'tg-bidang', 'sungai': 'tg-sungai', 'layer-skor': 'tg-skor', 'layer-lahan-hasil': 'tg-lahan-hasil', 'layer-pelanggaran': 'tg-pelanggaran' };
+        const el = document.getElementById(mapping[id]);
         map.setLayoutProperty(id, 'visibility', el && el.checked ? 'visible' : 'none');
     }
 
@@ -319,7 +281,6 @@
         document.getElementById('status-msg').innerText = "Analisis Skor...";
         const res = await fetch(`${API_URL}/analyze/smart_scoring`);
         const data = await res.json();
-        
         if(map.getLayer('layer-skor')) map.removeLayer('layer-skor');
         if(map.getSource('src-skor')) map.removeSource('src-skor');
         map.addSource('src-skor', {type:'geojson', data:data});
@@ -327,21 +288,15 @@
             id: 'layer-skor', type: 'fill-extrusion', source: 'src-skor',
             paint: { 'fill-extrusion-color': ['interpolate', ['linear'], ['get', 'an1_smart_score'], 0, '#ef4444', 50, '#eab308', 80, '#22c55e'], 'fill-extrusion-height': ['get', 'Z_NDSM'], 'fill-extrusion-opacity': 1 }
         });
-
-        // PASANG POPUP KE LAYER BARU
         attachPopupEvents('layer-skor');
-
         document.getElementById('tg-bangunan').checked = false; toggleLayer('bangunan-3d');
         document.getElementById('analysis-layers').style.display='block';
         document.getElementById('div-layer-skor').style.display='flex';
         document.getElementById('tg-skor').checked = true;
-        
-        let good=0, totalDist=0;
-        data.features.forEach(f => { if(f.properties.an1_smart_score > 80) good++; totalDist += f.properties.an1_jarak; });
-        document.getElementById('an1-score').innerText = (totalDist/data.features.length).toFixed(1);
+        let good=0, totalScore=0;
+        data.features.forEach(f => { if(f.properties.an1_smart_score > 80) good++; totalScore += f.properties.an1_smart_score; });
+        document.getElementById('an1-score').innerText = (totalScore/data.features.length).toFixed(1);
         document.getElementById('an1-good').innerText = good;
-        document.getElementById('an1-dist').innerText = (totalDist/data.features.length).toFixed(1);
-        
         openTab('tab-an1');
         document.getElementById('status-msg').innerText = "Selesai.";
     }
@@ -349,32 +304,19 @@
     async function runAnalysis2() {
         document.getElementById('status-msg').innerText = "Analisis Lahan...";
         try {
-            const res = await fetch(`${API_URL}/analyze/parcel_status?v=${Date.now()}`);
-            if(!res.ok) throw new Error("Gagal ambil data");
+            const res = await fetch(`${API_URL}/analyze/parcel_status`);
             const data = await res.json();
-            
-            // LAYER BARU UNTUK HASIL LAHAN (Biar gak nimpa layer asli)
             if(map.getLayer('layer-lahan-hasil')) map.removeLayer('layer-lahan-hasil');
             if(map.getSource('src-lahan-hasil')) map.removeSource('src-lahan-hasil');
-            
             map.addSource('src-lahan-hasil', { 'type': 'geojson', 'data': data });
             map.addLayer({
                 'id': 'layer-lahan-hasil', 'type': 'line', 'source': 'src-lahan-hasil',
-                'layout': {'visibility': 'visible'},
-                'paint': {
-                    'line-color': ['case', ['>', ['coalesce', ['get', 'an2_persen_terbangun'], 0], 1], '#ef4444', '#22c55e'],
-                    'line-width': 2
-                }
+                'paint': { 'line-color': ['case', ['>', ['get', 'an2_persen_terbangun'], 1], '#ef4444', '#22c55e'], 'line-width': 2 }
             });
-
-            // PASANG POPUP KE LAYER BARU
             attachPopupEvents('layer-lahan-hasil');
-
             document.getElementById('analysis-layers').style.display = 'block';
             document.getElementById('div-layer-lahan').style.display = 'flex';
             document.getElementById('tg-lahan-hasil').checked = true;
-            document.getElementById('tg-bidang').checked = false; toggleLayer('bidang-tanah');
-
             if(data.summary_stats) {
                 const s = data.summary_stats;
                 document.getElementById('an2-total').innerText = s.total_persil;
@@ -385,71 +327,52 @@
             }
             openTab('tab-an2');
             document.getElementById('status-msg').innerText = "Selesai.";
-        } catch(e) { console.error(e); document.getElementById('status-msg').innerText = "Gagal."; }
+        } catch(e) { document.getElementById('status-msg').innerText = "Gagal."; }
     }
 
-   async function runAnalysis3() {
-    const btn3 = document.querySelector('.btn-an3');
-    const originalText = btn3.innerHTML;
-    btn3.innerHTML = "<span>⏳</span> Memproses...";
-    btn3.disabled = true;
-    document.getElementById('status-msg').innerText = "Cek Sungai...";
-
-    try {
-        const res = await fetch(`${API_URL}/analyze/river_buffer`);
-        const data = await res.json();
-        
-        if(map.getSource('buf')) map.removeSource('buf'); 
-        map.addSource('buf', {type:'geojson', data:data.buffer_area});
-        if(map.getLayer('buf-fill')) map.removeLayer('buf-fill');
-        map.addLayer({id:'buf-fill', type:'fill', source:'buf', paint:{'fill-color':'#dc2626', 'fill-opacity':0.3}});
-
-        if(map.getLayer('layer-pelanggaran')) map.removeLayer('layer-pelanggaran');
-        if(map.getSource('src-pelanggar')) map.removeSource('src-pelanggar');
-        map.addSource('src-pelanggar', {type:'geojson', data:data.violating_buildings});
-        map.addLayer({
-            id: 'layer-pelanggaran', type: 'fill-extrusion', source: 'src-pelanggar',
-            paint: { 'fill-extrusion-color': '#dc2626', 'fill-extrusion-height': ['get', 'Z_NDSM'] }
-        });
-
-        attachPopupEvents('layer-pelanggaran');
-
-        document.getElementById('an3-bldg').innerText = data.summary_stats.bangunan_melanggar;
-
-        document.getElementById('analysis-layers').style.display='block';
-        document.getElementById('div-layer-pelanggaran').style.display='flex';
-        document.getElementById('tg-pelanggaran').checked = true;
-        
-        openTab('tab-an3');
-        document.getElementById('status-msg').innerText = "Selesai.";
-    } catch(e) { 
-        console.error(e); 
-        document.getElementById('status-msg').innerText = "Gagal."; 
-    } finally {
-        btn3.innerHTML = originalText;
-        btn3.disabled = false;
+    async function runAnalysis3() {
+        const btn3 = document.querySelector('.btn-an3');
+        const originalText = btn3.innerHTML;
+        btn3.innerHTML = "<span>⏳</span> Memproses...";
+        btn3.disabled = true;
+        document.getElementById('status-msg').innerText = "Cek Sungai...";
+        try {
+            const res = await fetch(`${API_URL}/analyze/river_buffer`);
+            const data = await res.json();
+            if(map.getSource('buf')) map.removeSource('buf'); 
+            map.addSource('buf', {type:'geojson', data:data.buffer_area});
+            if(map.getLayer('buf-fill')) map.removeLayer('buf-fill');
+            map.addLayer({id:'buf-fill', type:'fill', source:'buf', paint:{'fill-color':'#dc2626', 'fill-opacity':0.3}});
+            if(map.getLayer('layer-pelanggaran')) map.removeLayer('layer-pelanggaran');
+            if(map.getSource('src-pelanggar')) map.removeSource('src-pelanggar');
+            map.addSource('src-pelanggar', {type:'geojson', data:data.violating_buildings});
+            map.addLayer({ id: 'layer-pelanggaran', type: 'fill-extrusion', source: 'src-pelanggar', paint: { 'fill-extrusion-color': '#dc2626', 'fill-extrusion-height': ['get', 'Z_NDSM'] } });
+            attachPopupEvents('layer-pelanggaran');
+            document.getElementById('an3-bldg').innerText = data.summary_stats.bangunan_melanggar;
+            document.getElementById('analysis-layers').style.display='block';
+            document.getElementById('div-layer-pelanggaran').style.display='flex';
+            document.getElementById('tg-pelanggaran').checked = true;
+            openTab('tab-an3');
+            document.getElementById('status-msg').innerText = "Selesai.";
+        } catch(e) { document.getElementById('status-msg').innerText = "Gagal."; }
+        finally { btn3.innerHTML = originalText; btn3.disabled = false; }
     }
 
     function toggleDashboard() {
         const dash = document.getElementById('dashboardPanel');
         const icon = document.getElementById('toggleIcon');
         dash.classList.toggle('minimized');
-        if(dash.classList.contains('minimized')) { icon.classList.remove('fa-chevron-down'); icon.classList.add('fa-chevron-up'); }
-        else { icon.classList.remove('fa-chevron-up'); icon.classList.add('fa-chevron-down'); }
+        icon.className = dash.classList.contains('minimized') ? 'fas fa-chevron-up' : 'fas fa-chevron-down';
     }
 
     function openTab(name) {
-        const dash = document.getElementById('dashboardPanel');
-        if(dash.classList.contains('minimized')) toggleDashboard();
         document.querySelectorAll('.tab-content').forEach(x=>x.style.display='none');
         document.querySelectorAll('.tab-btn').forEach(x=>x.classList.remove('active'));
         document.getElementById(name).style.display='block';
-        const btns = document.querySelectorAll('.tab-btn');
-        btns.forEach(btn => { if(btn.getAttribute('onclick').includes(name)) btn.classList.add('active'); });
+        document.querySelectorAll('.tab-btn').forEach(btn => { if(btn.getAttribute('onclick').includes(name)) btn.classList.add('active'); });
     }
 
     function toggleChat(){ const w=document.getElementById('chatWindow'); w.style.display = w.style.display === 'flex' ? 'none' : 'flex'; }
-    function sendManualChat() { const e = { key: 'Enter' }; handleChat(e); }
     async function handleChat(e){
         if(e.key==='Enter'){
             const input=document.getElementById('chatInput');
@@ -466,8 +389,4 @@
     }
 </script>
 </body>
-
 </html>
-
-
-
