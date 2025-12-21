@@ -217,7 +217,7 @@
     map.addControl(new maplibregl.NavigationControl());
 
     map.on('load', async () => {
-        map.addSource('ortho-src', { type: 'raster', tiles: [`${TILE_URL}/data/tiles/ortho/{z}/{x}/{y}.png`], tileSize: 256 });
+        map.addSource('ortho-src', { type: 'raster', tiles: [`${TILE_URL}/{z}/{x}/{y}.png`], tileSize: 256 });
         map.addLayer({ id: 'ortho', type: 'raster', source: 'ortho-src' });
         map.addSource('dtm-src', { type: 'raster-dem', tiles: [`${TILE_URL}/data/tiles/dtm/{z}/{x}/{y}.png`], tileSize: 256, maxzoom: 15, encoding: 'terrarium' });
         map.setTerrain({ source: 'dtm-src', exaggeration: 1.5 });
@@ -454,3 +454,4 @@
 </body>
 
 </html>
+
