@@ -212,12 +212,12 @@
 
 <script>
     const API_URL = 'https://zeeshuwu-backend-nguwet.hf.space';
-    const TILE_URL = 'https://zeeshuwu.github.io/Geoportal_Desa_Nguwet/data/tiles/ortho';
+    const TILE_URL = 'https://zeeshuwu.github.io/Geoportal_Desa_Nguwet/data/tiles';
     const map = new maplibregl.Map({ container: 'map', style: { version: 8, sources: { osm: { type: 'raster', tiles: ['https://tile.openstreetmap.org/{z}/{x}/{y}.png'], tileSize: 256 } }, layers: [{ id: 'background', type: 'background', paint: {'background-color': '#0f172a'} }, { id: 'osm', type: 'raster', source: 'osm' }] }, center: [110.23, -7.36], zoom: 14, pitch: 55 });
     map.addControl(new maplibregl.NavigationControl());
 
     map.on('load', async () => {
-        map.addSource('ortho-src', { type: 'raster', tiles: [`${TILE_URL}/{z}/{x}/{y}.png`], tileSize: 256 });
+        map.addSource('ortho-src', { type: 'raster', tiles: [`${TILE_URL}/ortho/{z}/{x}/{y}.png`], tileSize: 256 });
         map.addLayer({ id: 'ortho', type: 'raster', source: 'ortho-src' });
         map.addSource('dtm-src', { type: 'raster-dem', tiles: [`${TILE_URL}/data/tiles/dtm/{z}/{x}/{y}.png`], tileSize: 256, maxzoom: 15, encoding: 'terrarium' });
         map.setTerrain({ source: 'dtm-src', exaggeration: 1.5 });
@@ -454,4 +454,5 @@
 </body>
 
 </html>
+
 
