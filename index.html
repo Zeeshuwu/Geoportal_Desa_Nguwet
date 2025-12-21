@@ -388,13 +388,21 @@
         } catch(e) { console.error(e); document.getElementById('status-msg').innerText = "Gagal."; }
     }
 
-    async function runAnalysis3() {
-        document.getElementById('status-msg').innerText = "Cek Sungai...";
+   async function runAnalysis3() {
+    const btn3 = document.querySelector('.btn-an3');
+    const originalText = btn3.innerHTML;
+    btn3.innerHTML = "<span>⏳</span> Memproses...";
+    btn3.disabled = true;
+    document.getElementById('status-msg').innerText = "Cek Sungai...";
+
+    try {
         const res = await fetch(`${API_URL}/analyze/river_buffer`);
         const data = await res.json();
         
-        if(map.getSource('buf')) map.removeSource('buf'); map.addSource('buf', {type:'geojson', data:data.buffer_area});
-        if(!map.getLayer('buf-fill')) map.addLayer({id:'buf-fill', type:'fill', source:'buf', paint:{'fill-color':'#dc2626', 'fill-opacity':0.3}});
+        if(map.getSource('buf')) map.removeSource('buf'); 
+        map.addSource('buf', {type:'geojson', data:data.buffer_area});
+        if(map.getLayer('buf-fill')) map.removeLayer('buf-fill');
+        map.addLayer({id:'buf-fill', type:'fill', source:'buf', paint:{'fill-color':'#dc2626', 'fill-opacity':0.3}});
 
         if(map.getLayer('layer-pelanggaran')) map.removeLayer('layer-pelanggaran');
         if(map.getSource('src-pelanggar')) map.removeSource('src-pelanggar');
@@ -404,16 +412,22 @@
             paint: { 'fill-extrusion-color': '#dc2626', 'fill-extrusion-height': ['get', 'Z_NDSM'] }
         });
 
-        // PASANG POPUP KE LAYER BARU
         attachPopupEvents('layer-pelanggaran');
+
+        document.getElementById('an3-bldg').innerText = data.summary_stats.bangunan_melanggar;
 
         document.getElementById('analysis-layers').style.display='block';
         document.getElementById('div-layer-pelanggaran').style.display='flex';
         document.getElementById('tg-pelanggaran').checked = true;
         
-        document.getElementById('an3-count').innerText = data.summary_stats.bangunan_melanggar + " Unit";
         openTab('tab-an3');
         document.getElementById('status-msg').innerText = "Selesai.";
+    } catch(e) { 
+        console.error(e); 
+        document.getElementById('status-msg').innerText = "Gagal."; 
+    } finally {
+        btn3.innerHTML = originalText;
+        btn3.disabled = false;
     }
 
     function toggleDashboard() {
@@ -454,5 +468,6 @@
 </body>
 
 </html>
+
 
 
