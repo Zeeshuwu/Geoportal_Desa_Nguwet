@@ -1,63 +1,61 @@
-🌍 Geoportal Desa Nguwet
+# 🌍 GEOPORTAL DESA NGUWET - Spatial Intelligence System
 
-Sistem Informasi Geospasial Cerdas untuk Analisis Tata Ruang Desa
+[![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://choosealicense.com/licenses/mit/)
+[![Python 3.10](https://img.shields.io/badge/Python-3.10-blue?logo=python&logoColor=white)](https://www.python.org/)
+[![Flask](https://img.shields.io/badge/Backend-Flask-000000?logo=flask&logoColor=white)](https://flask.palletsprojects.com/)
+[![MapLibre GL JS](https://img.shields.io/badge/Frontend-MapLibre_GL_JS-396CB2?style=flat&logo=maplibre&logoColor=white)](https://maplibre.org/)
+[![Hugging Face](https://img.shields.io/badge/Compute-Hugging_Face-FFD21E?logo=huggingface&logoColor=black)](https://huggingface.co/)
+[![GitHub Pages](https://img.shields.io/badge/Hosting-GitHub_Pages-222222?logo=github&logoColor=white)](https://pages.github.com/)
 
-Geoportal Desa Nguwet adalah aplikasi WebGIS interaktif yang dirancang untuk membantu perangkat desa dan masyarakat dalam memvisualisasikan data spasial, melakukan analisis tata ruang otomatis, dan mendapatkan wawasan berbasis data melalui asisten kecerdasan buatan (AI).
+**Geoportal Desa Nguwet** adalah platform WebGIS interaktif yang dirancang sebagai instrumen pendukung keputusan (*Decision Support System*) untuk tata ruang desa. Sistem ini mengintegrasikan data vektor dan raster multisektoral, dilengkapi mesin analisis spasial otomatis di sisi server, serta asisten cerdas berbasis *Generative AI*.
 
-Proyek ini dikembangkan oleh Kelompok 1 - Infrastruktur Data Spasial, Magister Teknik Geomatika, Universitas Gadjah Mada.
+Dikembangkan oleh **Kelompok 1 - Infrastruktur Data Spasial**, Magister Teknik Geomatika, Universitas Gadjah Mada.
 
-✨ Fitur Utama
+---
 
-Peta Interaktif 3D
+## ✨ Fitur Utama
 
-Visualisasi bangunan 3D (LoD 1) berdasarkan data ketinggian.
+### 🗺️ **Visualisasi Peta 3D Interaktif**
+- **LoD 1 Building Model**: Visualisasi bangunan 3D berdasarkan atribut ketinggian (*Z_NDSM*).
+- **Multi-Source Layer**: Integrasi Ortofoto resolusi tinggi, DTM (*Digital Terrain Model*), dan data vektor (Jalan, Sungai, Persil).
+- **Smart Interaction**: Popup informasi muncul otomatis saat kursor diarahkan (*Hover*) dan diklik.
 
-Integrasi data Ortofoto resolusi tinggi dan DTM (Digital Terrain Model).
+### 📊 **Toolbox Analisis Spasial (Server-Side)**
+1.  **Analisis Skor Lokasi**: Algoritma cerdas untuk menilai nilai strategis lahan berdasarkan aksesibilitas jalan dan kepadatan lingkungan.
+2.  **Status Pemanfaatan Lahan**: Perhitungan otomatis rasio keterbangunan (*Building Coverage Ratio*) pada setiap bidang tanah.
+3.  **Cek Sempadan Sungai**: Deteksi pelanggaran bangunan di zona sempadan sungai (Buffer 15m) sesuai **Permen PUPR No. 28/2015**.
 
-Popup informasi interaktif untuk setiap objek bangunan dan bidang tanah.
+### 🤖 **Asisten Cerdas AI (Chatbot)**
+- **Powered by Gemini 2.5 Flash**: Menjawab pertanyaan *natural language* seputar data desa.
+- **Context-Aware**: AI dibekali data statistik *real-time* dari database spasial desa (Jumlah bangunan, luas lahan, dll).
+- **Edukatif**: Mampu menjelaskan regulasi tata ruang kepada warga awam.
 
-Toolbox Analisis Spasial (Server-Side)
+### 🛡️ **Manajemen Layer Non-Destruktif**
+- **Layer Terpisah**: Hasil analisis (misal: bangunan melanggar) muncul sebagai layer baru di atas data asli.
+- **Toggle Kontrol**: Pengguna dapat menyalakan/mematikan layer hasil analisis tanpa menghilangkan data dasar.
 
-📊 Analisis Skor Lokasi: Menilai strategisnya lokasi berdasarkan akses jalan dan kepadatan.
+---
 
-🟨 Status Pemanfaatan Lahan: Menghitung rasio bangunan terhadap luas persil tanah (Building Coverage Ratio).
+## 🏗️ Arsitektur Sistem
 
-🌊 Cek Sempadan Sungai: Deteksi otomatis bangunan yang melanggar zona sempadan sungai (Buffer 15m) sesuai Permen PUPR No. 28/2015.
+Sistem ini menggunakan pendekatan **Hybrid Cloud** untuk efisiensi biaya dan performa tinggi:
 
-Asisten Cerdas AI (Chatbot)
-
-Terintegrasi dengan Google Gemini 2.5 Flash.
-
-Menjawab pertanyaan seputar statistik desa (jumlah bangunan, luas lahan) secara natural.
-
-Memberikan konteks data real-time dari database spasial.
-
-Manajemen Layer Non-Destruktif
-
-Hasil analisis ditampilkan sebagai layer baru di atas peta dasar tanpa menghapus data asli.
-
-Legenda dinamis yang muncul sesuai analisis yang aktif.
-
-🏗️ Arsitektur Sistem
-
-Sistem ini menggunakan pendekatan Hybrid Cloud untuk efisiensi biaya dan performa tinggi:
-
-Frontend: Dihosting di GitHub Pages (Statis & Cepat).
-
-Backend: Dihosting di Hugging Face Spaces (Komputasi Berat Python/GeoPandas).
-
-Data Raster: Disimpan sebagai Tiles di GitHub untuk streaming cepat.
-
+```mermaid
 flowchart TD
-    %% --- AKTOR UTAMA ---
+    %% --- STYLE DEFINITIONS ---
+    classDef actor fill:#e1f5fe,stroke:#01579b,stroke-width:2px;
+    classDef frontend fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px;
+    classDef storage fill:#fff3e0,stroke:#ef6c00,stroke-width:2px;
+    classDef backend fill:#f3e5f5,stroke:#7b1fa2,stroke-width:2px;
+    classDef ai fill:#fce4ec,stroke:#c2185b,stroke-width:2px;
+
+    %% --- NODES ---
     User([Pengguna]):::actor
 
-    %% --- FRONTEND ---
     subgraph Client_Side ["Frontend (GitHub Pages)"]
         UI["MapLibre GL JS<br>(Visualisasi Peta & UI)"]:::frontend
     end
 
-    %% --- CLOUD SERVICES ---
     subgraph Cloud_Services ["Cloud Infrastructure"]
         direction TB
         Tiles[("Raster Tiles Storage<br>(GitHub Repo)")]:::storage
@@ -83,84 +81,3 @@ flowchart TD
     Gemini -->|"5. Respon Bahasa Natural"| API
 
     API ==>|"6. Kirim Hasil JSON"| UI
-
-    %% --- STYLING ---
-    classDef actor fill:#e1f5fe,stroke:#01579b,stroke-width:2px;
-    classDef frontend fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px;
-    classDef storage fill:#fff3e0,stroke:#ef6c00,stroke-width:2px;
-    classDef backend fill:#f3e5f5,stroke:#7b1fa2,stroke-width:2px;
-    classDef ai fill:#fce4ec,stroke:#c2185b,stroke-width:2px;
-
-
-🛠️ Teknologi yang Digunakan
-
-Frontend
-
-HTML5, CSS3, JavaScript (ES6+)
-
-MapLibre GL JS: Rendering peta vektor dan raster 3D.
-
-Chart.js: Visualisasi data statistik.
-
-FontAwesome: Ikon antarmuka.
-
-Backend
-
-Python 3.10
-
-Flask: Framework API ringan.
-
-GeoPandas & Shapely: Analisis geometri dan spasial.
-
-OSMnx: Pengambilan data jaringan jalan.
-
-Google Generative AI SDK: Integrasi LLM.
-
-🚀 Cara Instalasi & Deployment
-
-1. Backend (Hugging Face)
-
-Buat Space baru di Hugging Face (SDK: Docker).
-
-Upload file: Dockerfile, requirements.txt, app.py, dan folder data/vectors.
-
-Set Environment Variable (jika perlu) untuk API Key Gemini.
-
-2. Frontend (GitHub Pages)
-
-Fork atau Clone repositori ini.
-
-Edit file index.html:
-
-const API_URL = '[https://link-space-huggingface-anda.hf.space](https://link-space-huggingface-anda.hf.space)';
-const TILE_URL = '[https://username.github.io/nama-repo/data/tiles](https://username.github.io/nama-repo/data/tiles)';
-
-
-Upload folder data/tiles (Raster Tiles) dan folder logo.
-
-Aktifkan GitHub Pages di pengaturan repositori (Source: main / root).
-
-📂 Struktur Direktori
-
-geoportal-nguwet/
-├── 📄 index.html          # Halaman Utama (Frontend)
-├── 📄 app.py              # Logika Server (Backend)
-├── 📄 requirements.txt    # Daftar Pustaka Python
-├── 📄 Dockerfile          # Konfigurasi Container
-├── 📂 data/
-│   ├── 📂 vectors/        # File GeoJSON (Bangunan, Persil, Sungai)
-│   └── 📂 tiles/          # Pecahan Gambar Peta (XYZ format)
-└── 📂 logo/               # Aset Gambar & Logo Stakeholder
-
-
-🤝 Stakeholder Sumber Data
-
-Data yang digunakan dalam sistem ini bersumber dari:
-
-Badan Pertanahan Nasional (BPN): Peta Bidang Tanah & Ortofoto.
-
-Badan Informasi Geospasial (BIG): DEM & Batas Administrasi.
-
-PUPR: Data Bangunan & Regulasi Sempadan.
-
-Pemerintah Desa Nguwet: Data Validasi Lapangan.
