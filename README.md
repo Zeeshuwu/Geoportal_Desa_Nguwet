@@ -78,6 +78,97 @@ flowchart TD
     GeoEngine <-->|"Baca Data Vektor"| VectorDB
 
     API -->|"4. Kirim Konteks Data"| Gemini
+
+
+
+## 🛠️ Technology Stack
+
+**Frontend**
+* **Core:** HTML5, CSS3, JavaScript (ES6+)
+* **Mapping Engine:** MapLibre GL JS (WebGL Rendering)
+* **Hosting:** GitHub Pages (Static Hosting & Tile Server)
+
+**Backend & AI**
+* **API:** Python 3.10 dengan Flask Framework
+* **Spatial Processing:** GeoPandas, Shapely, OSMnx, Rtree
+* **Artificial Intelligence:** Google Generative AI SDK (Gemini 2.5 Flash)
+* **Compute:** Hugging Face Spaces (Docker Container)
+
+---
+
+## 📂 Struktur Direktori
+
+```text
+geoportal-nguwet/
+├── 📄 index.html          # Halaman Utama (Frontend Interaktif)
+├── 📄 app.py              # Logika Server Backend (Flask & GIS Engine)
+├── 📄 requirements.txt    # Daftar Pustaka Python (Dependencies)
+├── 📄 Dockerfile          # Konfigurasi Container untuk Hugging Face
+├── 📂 data/
+│   ├── 📂 vectors/        # Database GeoJSON (Bangunan, Persil, Sungai)
+│   └── 📂 tiles/          # Peta Dasar Raster (XYZ format - Hosted di GitHub)
+│       ├── 📂 ortho/      # Tiles Foto Udara
+│       └── 📂 dtm/        # Tiles Digital Terrain Model
+└── 📂 logo/               # Aset Gambar & Logo Stakeholder
+```
+
+---
+
+## 🚀 Panduan Instalasi & Deployment
+
+### 1. Backend (Hugging Face Spaces)
+1. Buat **Space** baru di Hugging Face dengan SDK **Docker**.
+2. Upload file `Dockerfile`, `requirements.txt`, `app.py`, dan folder `data/vectors`.
+3. Set **Environment Variable** `GEMINI_API_KEY` di pengaturan Space.
+4. Ambil URL API dari menu "Embed this space".
+
+### 2. Frontend (GitHub Pages)
+1. **Clone** repository ini.
+2. Edit file `index.html` bagian konfigurasi API:
+   ```javascript
+   const API_URL = '[https://link-space-anda.hf.space](https://link-space-anda.hf.space)';
+   const TILE_URL = '[https://username.github.io/repo/data/tiles](https://username.github.io/repo/data/tiles)';
+   ```
+3. Upload folder `data/tiles` (Raster) dan folder `logo`.
+4. Aktifkan **GitHub Pages** pada branch `main`.
+
+---
+
+## 🤝 Stakeholder Sumber Data
+
+Data yang digunakan dalam sistem ini bersumber dari kolaborasi instansi:
+
+* **Badan Pertanahan Nasional (BPN):** Peta Bidang Tanah & Ortofoto.
+* **Badan Informasi Geospasial (BIG):** DEM & Batas Administrasi.
+* **PUPR:** Data Bangunan & Regulasi Sempadan.
+* **Pemerintah Desa Nguwet:** Data Validasi Lapangan.
+
+---
+
+## 👥 Tim Pengembang
+
+**Kelompok 1 - Infrastruktur Data Spasial**
+
+* **Mohammad Zulfi Rahadi Putra        24/541055/PTK/15932 
+
+Caecilia Alvinny Atulolon			   24/551614/PTK/16405 
+
+Dhega Wasi Wihikan 				       24/552330/PTK/16455 
+
+Muhammad Rouf Indhra Dewa Sambodo      24/552974/PTK/16494 
+
+Catharina Putri Kusuma Wardhani        25/569734/PTK/16948 **
+
+* Magister Teknik Geomatika
+* Departemen Teknik Geodesi
+* Universitas Gadjah Mada
+
+---
+
+## 📄 Lisensi
+
+Proyek ini didistribusikan di bawah lisensi **MIT License**.
+Silakan gunakan, modifikasi, dan distribusikan kembali untuk keperluan pendidikan atau pengembangan lebih lanjut.
     Gemini -->|"5. Respon Bahasa Natural"| API
 
     API ==>|"6. Kirim Hasil JSON"| UI
