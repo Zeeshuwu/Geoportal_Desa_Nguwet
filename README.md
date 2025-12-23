@@ -36,49 +36,6 @@ Dikembangkan oleh **Kelompok 1 - Infrastruktur Data Spasial**, Magister Teknik G
 
 ---
 
-## 🏗️ Arsitektur Sistem
-
-Sistem ini menggunakan pendekatan **Hybrid Cloud** untuk efisiensi biaya dan performa tinggi:
-
-```mermaid
-flowchart TD
-    %% --- STYLE DEFINITIONS ---
-    classDef actor fill:#e1f5fe,stroke:#01579b,stroke-width:2px;
-    classDef frontend fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px;
-    classDef storage fill:#fff3e0,stroke:#ef6c00,stroke-width:2px;
-    classDef backend fill:#f3e5f5,stroke:#7b1fa2,stroke-width:2px;
-    classDef ai fill:#fce4ec,stroke:#c2185b,stroke-width:2px;
-
-    %% --- NODES ---
-    User([Pengguna]):::actor
-
-    subgraph Client_Side ["Frontend (GitHub Pages)"]
-        UI["MapLibre GL JS<br>(Visualisasi Peta & UI)"]:::frontend
-    end
-
-    subgraph Cloud_Services ["Cloud Infrastructure"]
-        direction TB
-        Tiles[("Raster Tiles Storage<br>(GitHub Repo)")]:::storage
-        
-        subgraph Backend_Server ["Backend (Hugging Face)"]
-            API["Flask API Handler"]:::backend
-            GeoEngine["GeoPandas Engine<br>(Analisis Spasial)"]:::backend
-            VectorDB[("GeoJSON Database")]:::storage
-        end
-    end
-
-    Gemini[["Google Gemini AI"]]:::ai
-
-    %% --- DATA FLOW ---
-    User ==>|"1. Interaksi / Klik"| UI
-    UI -.->|"2. Request Gambar Peta (Tiles)"| Tiles
-    UI ==>|"3. Request API (Analisis/Chat)"| API
-
-    API -->|"Proses Geometri"| GeoEngine
-    GeoEngine <-->|"Baca Data Vektor"| VectorDB
-
-    API -->|"4. Kirim Konteks Data"| Gemini
-
 
 
 ## 🛠️ Technology Stack
